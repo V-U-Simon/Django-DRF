@@ -20,6 +20,7 @@ autoflake = "^2.0.0"
 djhtml = "^1.5.2"
 pytest = "^7.2.1"
 djlint = "^1.19.13"
+django-debug-toolbar = "^3.8.1"
 
 [build-system]
 requires = ["poetry-core"]
