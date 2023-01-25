@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block content %}
+    <h1>Detail page</h1>
+    <br>
+    <h1>Todo: {{ object.title }}</h1>
+    <p>{{ object.task }}</p>
+    <p>{{ object.description }}</p>
+    <p>Deadline: {{ object.deadline }}</p>
+    <p>Status: {{ object.status }}</p>
+    <a href="{% url 'app_todo:update' object.pk %}">Edit</a>
+    <a href="{% url 'app_todo:delete' object.pk %}">Delete</a>
+{% endblock content %}

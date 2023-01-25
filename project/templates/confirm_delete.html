@@ -1,1 +1,10 @@
-<h1>todo_confirm_delete</h1>
+{% extends 'base.html' %}
+{% block content %}
+    <h1>Confirm delete Todo</h1>
+    <form method="post">
+        {% csrf_token %}
+        <p>Are you sure you want to delete the following todo?</p>
+        <p>{{ todo.task }}</p>
+        <input type="submit" value="Delete">
+    </form>
+{% endblock %}

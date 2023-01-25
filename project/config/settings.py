@@ -52,6 +52,7 @@ INSTALLED_APPS = [
     "bootstrap5",
     "app_theme",
     "app_main",
+    "app_todo",
 ]
 
 MIDDLEWARE = [
