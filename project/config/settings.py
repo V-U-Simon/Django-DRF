@@ -53,9 +53,11 @@ INSTALLED_APPS = [
     "app_theme",
     "app_main",
     "app_todo",
+    "app_user",
 ]
 
 MIDDLEWARE = [
+    "debug_toolbar.middleware.DebugToolbarMiddleware",
     "django.middleware.security.SecurityMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
@@ -149,3 +151,4 @@ STATICFILES_DIRS = (os.path.join(PROJECT_ROOT, "assets"),)
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+AUTH_USER_MODEL = 'app_user.CustomUser'
