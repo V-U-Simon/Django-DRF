@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     "debug_toolbar",
     "tailwind",
     "django_browser_reload",
+    "bootstrap5",
     "app_theme",
     "app_main",
 ]
