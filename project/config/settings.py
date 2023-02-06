@@ -13,29 +13,11 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 import os
 from pathlib import Path
 
-# Build paths inside the project like this: BASE_DIR / 'subdir'.
+
 BASE_DIR = Path(__file__).resolve().parent.parent
-
-
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
-
-# SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = "django-insecure-v8l=sqil0el&+y6zb)l_a%w5b401*nycpi2fsky!u57n_jo@eq"
-
-# SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
-INTERNAL_IPS = [
-    "127.0.0.1",
-]
-
-# WindTail
-TAILWIND_APP_NAME = "app_theme"
-INTERNAL_IPS = [
-    "127.0.0.1",
-]
 
 # Application definition
 
@@ -47,9 +29,9 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "debug_toolbar",
+    "bootstrap5",
     "tailwind",
     "django_browser_reload",
-    "bootstrap5",
     "app_theme",
     "app_main",
     "app_todo",
@@ -74,7 +56,7 @@ TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",  # 📝 внутренняя
         # "BACKEND": "django.template.backends.jinja2.Jinja2",        # 📝 Jinja2
-        "DIRS": ["templates"],  # 📁🔎 путь поиска шаблонов /project/templates/*
+        "DIRS": [os.path.join(BASE_DIR, 'templates'), ],  # 📁🔎 путь поиска шаблонов /project/templates/*
         "APP_DIRS": True,  # 📁🔎 разрешить поиск шаблонов внутри папок приложений
         "OPTIONS": {
             "context_processors": [
@@ -91,8 +73,6 @@ WSGI_APPLICATION = "config.wsgi.application"
 
 
 # Database
-# https://docs.djangoproject.com/en/4.1/ref/settings/#databases
-
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.sqlite3",
@@ -102,8 +82,6 @@ DATABASES = {
 
 
 # Password validation
-# https://docs.djangoproject.com/en/4.1/ref/settings/#auth-password-validators
-
 AUTH_PASSWORD_VALIDATORS = [
     {
         "NAME": "django.contrib.auth.password_validation.UserAttributeSimilarityValidator",
@@ -122,24 +100,17 @@ AUTH_PASSWORD_VALIDATORS = [
 
 # Internationalization
 # https://docs.djangoproject.com/en/4.1/topics/i18n/
-
 LANGUAGE_CODE = "en-us"
-
 TIME_ZONE = "UTC"
-
 USE_I18N = True
-
 USE_TZ = True
 
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
-
-# URL для медии и статики в шаблонах
-MEDIA_URL = "/media/"
-STATIC_URL = "/static/"
-
+MEDIA_URL = "/media/"  # URL для медии в шаблонах
+STATIC_URL = "/static/"  # URL для статики в шаблонах
 # пустая папка, сюда будет собирать статику collectstatic
 MEDIA_ROOT = os.path.join(PROJECT_ROOT, "media")
 STATIC_ROOT = os.path.join(PROJECT_ROOT, "static")
@@ -148,7 +119,17 @@ STATICFILES_DIRS = (os.path.join(PROJECT_ROOT, "assets"),)
 
 
 # Default primary key field type
-# https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
-
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
-AUTH_USER_MODEL = 'app_user.CustomUser'
+AUTH_USER_MODEL = "app_user.CustomUser"
+
+
+# WindTail
+TAILWIND_APP_NAME = "app_theme"
+INTERNAL_IPS = ["127.0.0.1"]
+
+
+#
+ALLOWED_HOSTS = []
+INTERNAL_IPS = [
+    "127.0.0.1",
+]
