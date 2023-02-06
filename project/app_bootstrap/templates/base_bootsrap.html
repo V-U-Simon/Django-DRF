@@ -1,0 +1,17 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>
+            {% block title %}base title{% endblock %}
+        </title>
+        {% block css %}
+            {% include 'css.html' %}
+        {% endblock css %}
+    </head>
+    <body>
+        <h1>Bootsrap</h1>
+    </body>
+</html>
